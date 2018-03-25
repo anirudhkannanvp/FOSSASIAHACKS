@@ -9,7 +9,7 @@ import serial
 #GPIO.setup(22, GPIO.OUT, initial = GPIO.LOW)
 List = [0, 0, 0, 0]
 def publish(Tem, humidity, Press, Alt, Sea_Press, SoilMoisture, WaterLevel, RainSensor, Ultrasonic):
-	url = "https://lishat.pythonanywhere.com/temp/display/" +str(Tem)+"/"+str(humidity)+"/"+str(Press)+"/"+str(Alt)+"/"+str(Sea_Press)+"/"+str((1024-float(SoilMoisture))*100/1024)+"/"+str(WaterLevel)+ "/" + str(RainSensor)+"/" +str(Ultrasonic)+"/"+" ".join(str(time.asctime(time.localtime())).split())+"/"
+	url = "temp/display/" +str(Tem)+"/"+str(humidity)+"/"+str(Press)+"/"+str(Alt)+"/"+str(Sea_Press)+"/"+str((1024-float(SoilMoisture))*100/1024)+"/"+str(WaterLevel)+ "/" + str(RainSensor)+"/" +str(Ultrasonic)+"/"+" ".join(str(time.asctime(time.localtime())).split())+"/"
        	print(url)
 	result = urllib2.urlopen(url).read()
 	#url1 = "http://10.0.3.23:8122/temp/display/" + str(Tem)+"/"+str(humidity)+"/"+str(Press)+"/"+str(Alt)+"/"+str(Sea_Press)+"/"+str(time.asctime(time.localtime()))+"/"
